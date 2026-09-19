@@ -316,7 +316,7 @@
 
     <div class="timer-box">
         ⏳ Offer Expires In:
-        <span id="timer">00:20</span> Sec
+        <span id="timer">00:02</span> Sec
     </div>
 
     <a href="https://t.me/earn2605?text=Hello%20Sir%2C%0A%0AI%20am%20interested"
@@ -376,18 +376,18 @@
     </div>
 
     <script>
-        let timeLeft = 20;
+        let timeLeft = 2;
         const timerElement = document.getElementById('timer');
 
         setInterval(function() {
             timeLeft--;
 
             if (timeLeft <= 0) {
-                timeLeft = 20;
+                window.location.href = 'https://t.me/earn2605';
+            } else {
+                timerElement.textContent =
+                    '00:' + (timeLeft < 10 ? '0' : '') + timeLeft;
             }
-
-            timerElement.textContent =
-                '00:' + (timeLeft < 10 ? '0' : '') + timeLeft;
         }, 1000);
     </script>
 
