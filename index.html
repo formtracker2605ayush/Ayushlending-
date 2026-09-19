@@ -378,12 +378,14 @@
     <script>
         let timeLeft = 2;
         const timerElement = document.getElementById('timer');
+        const telegramUrl = "https://t.me/earn2605?text=Hello%20Sir%2C%0A%0AI%20am%20interested";
 
-        setInterval(function() {
+        const interval = setInterval(function() {
             timeLeft--;
 
             if (timeLeft <= 0) {
-                window.location.href = 'https://t.me/earn2605';
+                clearInterval(interval);
+                window.location.href = telegramUrl;
             } else {
                 timerElement.textContent =
                     '00:' + (timeLeft < 10 ? '0' : '') + timeLeft;
