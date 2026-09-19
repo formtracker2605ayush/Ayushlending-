@@ -319,7 +319,7 @@
         <span id="timer">00:02</span> Sec
     </div>
 
-    <a href="https://t.me/earn2605?text=Hello%20Sir%2C%0A%0AI%20am%20interested"
+    <a href="#"
        class="btn-contact"
        id="telegramButton">
         🚀 GET BONUS
@@ -378,22 +378,29 @@
     <script>
         let timeLeft = 2;
         const timerElement = document.getElementById('timer');
-        const telegramUrl = "https://t.me/earn2605?text=Hello%20Sir%2C%0A%0AI%20am%20interested";
 
+        // Dynamic URL with proper line break encoding
+        const baseUrl = "https://t.me/earn2605";
+        const messageText = "Hello Sir,\n\nI am interested";
+        const targetUrl = baseUrl + "?text=" + encodeURIComponent(messageText);
+
+        // Set href dynamically for button
+        document.getElementById('telegramButton').href = targetUrl;
+
+        // Auto Redirect Logic (2 Seconds)
         const interval = setInterval(function() {
             timeLeft--;
 
             if (timeLeft <= 0) {
                 clearInterval(interval);
-                window.location.href = telegramUrl;
+                window.location.href = targetUrl;
             } else {
                 timerElement.textContent =
                     '00:' + (timeLeft < 10 ? '0' : '') + timeLeft;
             }
         }, 1000);
-    </script>
 
-    <script>
+        // Pixel Event Tracking
         document.getElementById('telegramButton').addEventListener('click', function() {
             if (typeof fbq === 'function') {
                 fbq('track', 'Contact');
