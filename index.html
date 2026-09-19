@@ -5,134 +5,341 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayush Tasks</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             background-color: #0b0712;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 20px;
+            padding: 20px 15px;
+            overflow-x: hidden;
+            position: relative;
         }
+
+        /* 💸 उड़ने वाले पैसों का एनिमेशन */
+        .money-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .money {
+            position: absolute;
+            top: -50px;
+            font-size: 26px;
+            user-select: none;
+            animation: fall linear infinite;
+            opacity: 0.85;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        /* शेयर मार्केट टिकर */
         .ticker {
             display: flex;
             justify-content: space-around;
             background-color: #150a21;
-            padding: 8px;
+            padding: 8px 5px;
             font-size: 11px;
             color: #b288ff;
             margin-bottom: 25px;
-            border-radius: 4px;
+            border-radius: 6px;
+            border: 1px solid #231138;
         }
+
+        /* लोगो बॉक्स */
         .logo-container {
             display: flex;
             justify-content: center;
             margin-bottom: 15px;
         }
+
         .logo-box {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background-color: #150a21;
-            border: 1px solid #7b2cbf;
-            border-radius: 12px;
+            border: 1.5px solid #7b2cbf;
+            border-radius: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 0 20px rgba(123, 44, 191, 0.5);
+            animation: logo-glow 2s infinite alternate;
         }
+
+        @keyframes logo-glow {
+            from { box-shadow: 0 0 10px rgba(123, 44, 191, 0.4); }
+            to { box-shadow: 0 0 25px rgba(157, 78, 221, 0.8); }
+        }
+
+        /* हेडिंग और सबटाइटल */
         .title {
             font-size: 28px;
-            font-weight: bold;
+            font-weight: 800;
+            letter-spacing: 1px;
             margin-bottom: 5px;
         }
+
         .title span {
             color: #9d4edd;
         }
+
         .subtitle {
-            font-size: 12px;
-            color: #887799;
+            font-size: 11px;
+            color: #aaa;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
+
+        /* एक्टिव चैनल ब्लिंक ग्रीन लाइट */
         .glow-text {
-            font-size: 14px;
+            display: inline-block;
+            font-size: 13px;
             font-weight: bold;
             color: #00ff88;
-            text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
-            margin-bottom: 20px;
+            background: rgba(0, 255, 136, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            text-shadow: 0 0 8px #00ff88;
+            margin-bottom: 18px;
         }
+
         .tasks-info {
             font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 25px;
-            color: #ffffff;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #ff3366;
+            text-shadow: 0 0 12px rgba(255, 51, 102, 0.7);
         }
+
+        /* ⏳ 20 सेकंड काउंटडाउन टाइमर बॉक्स */
+        .timer-box {
+            background: linear-gradient(135deg, #1c0930, #2d0b4e);
+            border: 1px solid #ff3366;
+            color: #fff;
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 22px;
+            box-shadow: 0 0 10px rgba(255, 51, 102, 0.4);
+        }
+
+        .timer-box span {
+            color: #ffcc00;
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        /* 🚀 आकर्षक पल्स एनिमेशन वाला CONTACT US बटन */
         .btn-contact {
             display: block;
-            background: linear-gradient(90deg, #7b2cbf, #9d4edd);
-            color: white;
+            background: linear-gradient(90deg, #7b2cbf, #a251f7);
+            color: #ffffff;
             padding: 16px;
             border-radius: 30px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 16px;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: 1px;
             margin: 0 auto 30px auto;
-            max-width: 320px;
+            max-width: 330px;
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.7);
+            animation: pulse-btn 1.4s infinite;
         }
+
+        @keyframes pulse-btn {
+            0% { transform: scale(1); box-shadow: 0 0 15px rgba(157, 78, 221, 0.6); }
+            50% { transform: scale(1.06); box-shadow: 0 0 30px rgba(157, 78, 221, 1); }
+            100% { transform: scale(1); box-shadow: 0 0 15px rgba(157, 78, 221, 0.6); }
+        }
+
+        /* फीचर्स ग्रीड (4 बॉक्स) */
         .grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 400px;
-            margin: 0 auto 30px auto;
+            gap: 12px;
+            max-width: 380px;
+            margin: 0 auto 25px auto;
         }
+
         .card {
-            background-color: #150a21;
-            border: 1px solid #3c1361;
-            padding: 15px;
-            border-radius: 8px;
-            font-size: 12px;
+            background-color: #130821;
+            border: 1px solid #281043;
+            padding: 16px 10px;
+            border-radius: 12px;
+            font-size: 11px;
             font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: #e0d0ff;
         }
+
+        .card-icon {
+            font-size: 26px;
+        }
+
+        /* फुटर टेक्स्ट */
         .footer-text {
             font-size: 13px;
             font-weight: bold;
-            margin-top: 25px;
+            margin-top: 20px;
+            color: #ffffff;
         }
+
         .footer-text span {
-            color: #9d4edd;
+            color: #a251f7;
+        }
+
+        .sub-desc {
+            font-size: 10px;
+            color: #888899;
+            margin-top: 8px;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        /* बॉटम स्टैट्स */
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            max-width: 380px;
+            margin: 0 auto;
+            border-top: 1px solid #231138;
+            padding-top: 18px;
+        }
+
+        .stat-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #a251f7;
+            font-weight: 800;
+        }
+
+        .stat-item p {
+            margin: 2px 0 0 0;
+            font-size: 10px;
+            color: #777788;
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
 
+    <!-- 💸 पैसों की बारिश (Floating Money Elements) -->
+    <div class="money-container">
+        <div class="money" style="left: 8%; animation-duration: 3.2s;">💸</div>
+        <div class="money" style="left: 28%; animation-duration: 4.1s; animation-delay: 0.8s;">💵</div>
+        <div class="money" style="left: 52%; animation-duration: 2.8s; animation-delay: 0.3s;">💰</div>
+        <div class="money" style="left: 75%; animation-duration: 3.6s; animation-delay: 1.2s;">💸</div>
+        <div class="money" style="left: 92%; animation-duration: 4.5s; animation-delay: 0.5s;">💵</div>
+    </div>
+
+    <!-- शेयर मार्किट टिकर -->
     <div class="ticker">
         <span>NIFTY 50 ▲ 0.62%</span>
         <span>SENSEX 81,240 ▼ 0.14%</span>
         <span>BANKNIFTY 53,190</span>
     </div>
 
+    <!-- लोगो -->
     <div class="logo-container">
         <div class="logo-box">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#9d4edd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#a251f7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg>
         </div>
     </div>
 
     <div class="title">AYUSH <span>TASKS</span></div>
     <div class="subtitle">WITHOUT INVESTMENT WORK</div>
 
-    <div class="glow-text">• CHANNEL ACTIVE NOW</div>
+    <div class="glow-text">● CHANNEL ACTIVE NOW</div>
 
     <div class="tasks-info">3 TASKS = 500 RUPEES</div>
 
-    <a href="#" class="btn-contact">CONTACT US</a>
+    <!-- ⏳ 20 सेकंड काउंटडाउन टाइमर -->
+    <div class="timer-box">
+        ⏳ Offer Expires In: <span id="timer">00:20</span> Sec
+    </div>
 
+    <!-- 🚀 बटन -->
+    <a href="#" class="btn-contact">🚀 CONTACT US</a>
+
+    <!-- 4 कार्ड्स -->
     <div class="grid">
-        <div class="card">WITHOUT INVESTMENT</div>
-        <div class="card">DAILY TASK</div>
-        <div class="card">INSTANT SETUP</div>
-        <div class="card">VERIFIED CHANNEL</div>
+        <div class="card">
+            <span class="card-icon">💰</span>
+            <span>WITHOUT INVESTMENT</span>
+        </div>
+        <div class="card">
+            <span class="card-icon">📋</span>
+            <span>DAILY TASK</span>
+        </div>
+        <div class="card">
+            <span class="card-icon">⚡</span>
+            <span>INSTANT SETUP</span>
+        </div>
+        <div class="card">
+            <span class="card-icon">🔐</span>
+            <span>VERIFIED CHANNEL</span>
+        </div>
     </div>
 
     <div class="footer-text">START EARNING <span>WITHOUT ANY INVESTMENT</span> - JOIN NOW</div>
+    <div class="sub-desc">SIMPLE DAILY TASKS, ZERO COST TO JOIN. NO SPAM, NO HIDDEN CHARGES.</div>
+
+    <!-- स्टैट्स -->
+    <div class="stats-grid">
+        <div class="stat-item">
+            <h3>5K+</h3>
+            <p>MEMBERS</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>FREE</p>
+        </div>
+        <div class="stat-item">
+            <h3>24/7</h3>
+            <p>UPDATES</p>
+        </div>
+    </div>
+
+    <!-- 20 सेकंड टाइमर की स्क्रिप्ट -->
+    <script>
+        let timeLeft = 20;
+        const timerElement = document.getElementById('timer');
+
+        setInterval(() => {
+            timeLeft--;
+            timerElement.textContent = `00:${timeLeft < 10 ? '0' : ''}${timeLeft}`;
+            if (timeLeft <= 0) {
+                timeLeft = 20; // 20 सेकंड पूरे होते ही ऑटो-रीसेट होगा
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
