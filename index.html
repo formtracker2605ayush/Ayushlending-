@@ -1,147 +1,78 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayush Tasks</title>
-    <style>
-        body {
-            background-color: #0b0712;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
-        .ticker {
-            display: flex;
-            justify-content: space-around;
-            background-color: #150a21;
-            padding: 8px;
-            font-size: 11px;
-            color: #b288ff;
-            margin-bottom: 25px;
-            border-radius: 4px;
-        }
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 15px;
-        }
-        .logo-box {
-            width: 100px;
-            height: 100px;
-            background-color: #150a21;
-            border: 1px solid #7b2cbf;
-            border-radius: 12px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .title {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .title span {
-            color: #9d4edd;
-        }
-        .subtitle {
-            font-size: 11px;
-            color: #887799;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-        .status-badge {
-            display: inline-block;
-            border: 1px solid #00ff88;
-            color: #00ff88;
-            padding: 4px 12px;
-            border-radius: 15px;
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .price {
-            color: #ff3333;
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 25px;
-        }
-        .btn-telegram {
-            display: block;
-            background: linear-gradient(90deg, #7b2cbf, #9d4edd);
-            color: white;
-            padding: 14px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            margin: 0 auto 25px auto;
-            max-width: 300px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 320px;
-            margin: 0 auto 30px auto;
-        }
-        .card {
-            background-color: #161024;
-            border: 1px solid #2a1f3d;
-            border-radius: 8px;
-            padding: 15px;
-            font-size: 10px;
-            font-weight: bold;
-        }
-        .footer-text {
-            font-size: 16px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .footer-text span {
-            color: #9d4edd;
-        }
-    </style>
-</head>
-<body>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Ayush Tasks</title>
+ <style>
+ body {
+ background-color: #0b0712;
+ color: #ffffff;
+ font-family: Arial, sans-serif;
+ text-align: center;
+ margin: 0;
+ padding: 20px;
+ }
+ .ticker {
+ display: flex;
+ justify-content: space-around;
+ background-color: #150a21;
+ padding: 8px;
+ font-size: 11px;
+ color: #b288ff;
+ margin-bottom: 25px;
+ border-radius: 4px;
+ }
+ .logo-container {
+ display: flex;
+ justify-content: center;
+ margin-bottom: 15px;
+ }
+ .logo-box {
+ width: 100px;
+ height: 100px;
+ background-color: #150a21;
+ border: 1px solid #7b2cbf;
+ border-radius: 12px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+ .title {
+ font-size: 28px;
+ font-weight: bold;
+ margin-bottom: 5px;
+ }
+ .title span {
+ color: #9d4edd;
+ }
+ .subtitle {
+ font-size: 12px;
+ color: #887799;
+ letter-spacing: 2px;
+ margin-bottom: 10px;
+ }
+ .glow-text {
+ font-size: 14px;
+ font-weight: bold;
+ color: #00ff88;
+ text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
+ margin-bottom: 20px;
+ }
+ .tasks-info {
+ font-size: 24px;
+ font-weight: bold;
+ margin-bottom: 25px;
+ color: #ffffff;
+ }
+ .btn-contact {
+ display: block;
+ background: linear-gradient(90deg, #7b2cbf, #9d4edd);
+ color: white;
+ padding: 16px;
+ border-radius: 30px;
+ text-decoration: none;
+ font-weight: bold;
+ font-size: 16px;
+ margin: 0 
 
-    <div class="ticker">
-        <span>NIFTY 50 ▲ 0.62%</span>
-        <span>SENSEX 81,240 ▼ 0.14%</span>
-        <span>BANKNIFTY 53,190</span>
-    </div>
-
-    <div class="logo-container">
-        <div class="logo-box">
-            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#9d4edd" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="19" x2="19" y2="5"></line>
-                <polyline points="12 5 19 5 19 12"></polyline>
-            </svg>
-        </div>
-    </div>
-
-    <div class="title">AYUSH <span>TASKS</span></div>
-    <div class="subtitle">WITHOUT INVESTMENT WORK</div>
-
-    <div class="status-badge">• CHANNEL ACTIVE NOW</div>
-
-    <div class="price">1 Tasks = 500 Rupees</div>
-
-    <a href="https://t.me/your_channel_link" class="btn-telegram">🚀 JOIN TELEGRAM CHANNEL</a>
-
-    <div class="grid">
-        <div class="card">💰<br><br>WITHOUT INVESTMENT</div>
-        <div class="card">📋<br><br>DAILY TASK</div>
-        <div class="card">⚡<br><br>INSTANT SETUP</div>
-        <div class="card">🔐<br><br>VERIFIED CHANNEL</div>
-    </div>
-
-    <div class="footer-text">
-        START EARNING <span>WITHOUT ANY INVESTMENT</span><br>
-        <small>— JOIN NOW</small>
-    </div>
-
-</body>
-</html>
